@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "lib": ["ES6", "ES2022", "DOM"], // 包含 ES2022 库，支持 Object.hasOwn
+    "module": "CommonJS", // 模块规范改为 CommonJS（关键）
+    "moduleResolution": "Node", // 模块解析方式适配 CommonJS
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true, // 兼容 ES 模块导入（如 import express from 'express'）
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
