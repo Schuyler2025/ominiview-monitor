@@ -48,17 +48,19 @@ git clone https://github.com/Schuyler2025/ominiview-monitor.git
 cd ominiview-monitor
 
 #### 2. 启动前端（React）
+```bash
 npm install  # 安装依赖
 npm run build
 npm run preview
-
+```
 
 #### 3. 启动后端（Node.js）
+```bash
 cd server
 npm install
 npm start  # 启动服务
 
-
+```
 
 #### 使用方法：
 1. 打开http://localhost:4173；
