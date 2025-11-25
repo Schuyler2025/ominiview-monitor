@@ -44,9 +44,10 @@ npm install
 
 ### 快速上手：3步本地部署（新手友好）
 #### 1. 克隆源码
+```bash
 git clone https://github.com/Schuyler2025/ominiview-monitor.git
 cd ominiview-monitor
-
+```
 #### 2. 启动前端（React）
 ```bash
 npm install  # 安装依赖
