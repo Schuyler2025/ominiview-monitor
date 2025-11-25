@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { CDNS, DOUYU_PROXY } from "./consts";
 import { Base, printLink } from "./..";
-import { LiveLinks } from "./../../../../types";
+
 
 const did = "10000000000000000000000000001501";
 
@@ -22,15 +22,15 @@ interface MobileResponse {
   };
 }
 
-// interface LiveLinks {
-//   mobile?: string;
-//   pc?: string;
-//   cdnLinks: {
-//     flv: string[];
-//     m3u8: string[];
-//   };
-//   proxy?: string;
-// }
+interface LiveLinks {
+  mobile?: string;
+  pc?: string;
+  cdnLinks: {
+    flv: string[];
+    m3u8: string[];
+  };
+  proxy?: string;
+}
 
 const infoString = (info: Info): string => {
   const {

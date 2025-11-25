@@ -2,7 +2,7 @@
  * @Author: Schuyler schuylerhu@gmail.com
  * @Date: 2025-11-23 16:27:00
  * @LastEditors: Schuyler schuylerhu@gmail.com
- * @LastEditTime: 2025-11-24 18:21:21
+ * @LastEditTime: 2025-11-25 09:19:26
  * @FilePath: \ominiview-monitor\README.md
  * @Description:
  *
@@ -32,7 +32,7 @@
 ### 环境要求
 
 - Node.js 18+
-- npm 或 yarn
+- npm
 
 ### 安装依赖
 
@@ -40,41 +40,36 @@
 npm install
 ```
 
-### 启动开发服务器
+### 快速上手
 
-```bash
-npm run start
-```
+### 快速上手：3步本地部署（新手友好）
+#### 1. 克隆源码
+git clone https://github.com/Schuyler2025/ominiview-monitor.git
+cd ominiview-monitor
 
-
-### 构建生产版本
-
-```bash
+#### 2. 启动前端（React）
+npm install  # 安装依赖
 npm run build
-```
+npm run preview
 
-## 📖 使用指南
 
-### 添加直播流
+#### 3. 启动后端（Node.js）
+cd server
+npm install
+npm start  # 启动服务
 
-1. 点击侧边栏的 **"Add Custom URL"** 按钮
-2. 输入直播间URL（如：`https://www.huya.com/123456`）
-3. 点击 **"Add Stream"** 添加流
 
-### 布局模式
 
-支持多种网格布局模式：
-- **Single** - 单流全屏显示
-- **Dual** - 双流并排显示
-- **Triple** - 三流布局
-- **Quad** - 四流网格布局
-- **Hex** - 六流蜂窝布局
+#### 使用方法：
+1. 打开http://localhost:4173；
+2. 复制虎牙/斗鱼主播直播间链接（比如https://www.huya.com/xxx）；
+3. 粘贴到输入框，点击“添加直播”；
+4. 右上角切换布局，点击直播卡片的🔇/❌控制静音/关闭。
 
-### 流控制
 
-- 🔇 **静音/取消静音** - 点击流卡片上的音量图标
-- 🔄 **刷新** - 点击刷新按钮重新加载流
-- ❌ **移除** - 点击移除按钮删除流
+<div align="center">
+<img width="800" height="317" alt="Ominiviewer" src="./ominiviewer6.gif" />
+</div>
 
 
 ## 🤝 贡献

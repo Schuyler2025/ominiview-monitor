@@ -320,7 +320,7 @@ function App() {
              {isSidebarOpen && (
                 <div className="space-y-2 p-3 bg-black/20 rounded border border-zinc-800/50">
                     <div className="flex justify-between text-xs">
-                        <span className="text-zinc-500">Author</span>
+                        <span className="text-zinc-500">NGA</span>
                         <span className="text-emerald-500 font-mono">hyfc</span>
                     </div>
                     <div className="flex justify-between text-xs">
