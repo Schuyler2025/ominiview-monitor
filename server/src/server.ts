@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { Douyu } from './models/douyu';
 import { Huya } from './models/huya';
+import { Bilibili } from './models/bilibili';
 
 const app = express();
 
@@ -89,11 +90,40 @@ class StreamUrlParser {
     return null;
   }
 
+
+
+  private async parseBilibili(url: string) {
+    try {
+      // 匹配Bilibili URL格式：live.bilibili.com/roomId 或 bilibili.com/live/roomId
+      const roomIdMatch = url.match(/(?:live\.bilibili\.com|bilibili\.com\/live)\/(\d+)/);
+      if (!roomIdMatch) return null;
+
+      const roomId = roomIdMatch[1];
+      // 使用默认cookie，实际应用中应该从配置或用户输入获取
+      const defaultCookie = '';
+      const bilibili = new Bilibili(defaultCookie, Number(roomId), url);
+      const links = await bilibili.getLiveLinks();
+
+      return {
+        title: `Bilibili直播间 ${roomId}`,
+        streamUrl: url,
+        platform: 'Bilibili',
+        links: links
+      };
+
+    } catch (error) {
+      console.error('Error parsing Bilibili URL:', error);
+    }
+    return null;
+  }
+
   async parse(url: string) {
     if (url.includes('douyu.com')) {
       return await this.parseDouyu(url);
     } else if (url.includes('huya.com')) {
       return await this.parseHuya(url);
+    } else if (url.includes('bilibili.com')) {
+      return await this.parseBilibili(url);
     }
     return null;
   }

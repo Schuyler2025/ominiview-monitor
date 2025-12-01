@@ -129,6 +129,13 @@ function App() {
                 urlCandidates.push(parsedData.links.mobile);
               }
 
+              // Bilibili格式优先级
+              if (parsedData.links?.flv && Array.isArray(parsedData.links.flv)) {
+                Object.values(parsedData.links.flv).forEach(url => {
+                  if (typeof url === 'string') urlCandidates.push(url);
+                });
+              }
+
               // CDN链接
               if (parsedData.links?.cdnLinks?.m3u8 && Array.isArray(parsedData.links.cdnLinks.m3u8)) {
                 parsedData.links.cdnLinks.m3u8.forEach(url => {
@@ -386,14 +393,14 @@ function App() {
 
                 <form onSubmit={handleAddCustomStream} className="space-y-4">
                     <div>
-                        <label className="block text-xs font-medium text-zinc-400 uppercase tracking-wider mb-1">Platform / Room Number</label>
+                        <label className="block text-xs font-medium text-zinc-400 uppercase tracking-wider mb-1">Platform</label>
                         <div className="relative">
                             <select
                                 value={customTitle}
                                 onChange={(e) => setCustomTitle(e.target.value)}
                                 className="w-full bg-zinc-950 border border-zinc-800 rounded px-3 py-2 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none appearance-none cursor-pointer pointer-events-none"
                             >
-                                <option value="" disabled>Only Support HuYa & DouYu</option>
+                                <option value="" disabled>Only Support HuYa、 DouYu & Bilibili</option>
                                 {PLATFORMS.map(p => (
                                     <option key={p} value={p}>{p}</option>
                                 ))}

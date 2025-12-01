@@ -2,17 +2,17 @@
  * @Author: Schuyler schuylerhu@gmail.com
  * @Date: 2025-11-23 16:27:00
  * @LastEditors: Schuyler schuylerhu@gmail.com
- * @LastEditTime: 2025-11-25 09:19:26
+ * @LastEditTime: 2025-12-01 10:36:13
  * @FilePath: \ominiview-monitor\README.md
  * @Description:
  *
  * Copyright (c) 2025 by Schuyler, All Rights Reserved.
 -->
 
-<div align="center">
-<img width="800" height="317" alt="Ominiviewer" src="./ominiviewer.gif" />
-</div>
 
+<div align="center">
+<img width="800" height="317" alt="Ominiviewer" src="./ominiviewer6.gif" />
+</div>
 # Ominiview Monitor
 
 一个现代化的多流监控应用，支持虎牙和斗鱼直播平台的实时流媒体播放
@@ -21,7 +21,7 @@
 ## ✨ 特性
 
 - 🎥 **多流监控** - 同时监控多个直播流，支持灵活的网格布局
-- 🎮 **平台支持** - 原生支持虎牙(HuYa)和斗鱼(DouYu)直播平台
+- 🎮 **平台支持** - 原生支持虎牙(HuYa)、B站(Bilibili)和斗鱼(DouYu)直播平台
 - 📱 **响应式设计** - 自适应不同屏幕尺寸和布局模式
 - 🔄 **智能解析** - 自动解析直播链接，支持FLV和HLS格式
 - 🎛️ **交互控制** - 支持静音、刷新、移除等操作
@@ -71,7 +71,7 @@ npm start  # 启动服务
 
 
 <div align="center">
-<img width="800" height="317" alt="Ominiviewer" src="./ominiviewer6.gif" />
+<img width="800" height="317" alt="Ominiviewer" src="./virtual.PNG" />
 </div>
 
 
