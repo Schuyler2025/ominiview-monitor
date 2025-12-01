@@ -2,7 +2,7 @@
  * @Author: Schuyler schuylerhu@gmail.com
  * @Date: 2025-11-23 16:27:00
  * @LastEditors: Schuyler schuylerhu@gmail.com
- * @LastEditTime: 2025-12-01 10:36:13
+ * @LastEditTime: 2025-12-01 10:40:35
  * @FilePath: \ominiview-monitor\README.md
  * @Description:
  *
@@ -13,6 +13,7 @@
 <div align="center">
 <img width="800" height="317" alt="Ominiviewer" src="./ominiviewer6.gif" />
 </div>
+
 # Ominiview Monitor
 
 一个现代化的多流监控应用，支持虎牙和斗鱼直播平台的实时流媒体播放
