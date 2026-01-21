@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-import { Douyu } from './models/douyu';
 import { Huya } from './models/huya';
 import { Bilibili } from './models/bilibili';
+import { DouyuApi } from './models/douyu/douyu';
 
 const app = express();
 
@@ -53,8 +53,8 @@ class StreamUrlParser {
 
       const roomId = roomIdMatch[1];
       // TODO: 解析斗鱼直播间
-      const douyu = new Douyu(Number(roomId));
-      const links = await douyu.getLiveLinks();
+      const douyu = new DouyuApi();
+      const links = await douyu.getStreamUrl(roomId);
 
       return {
         title: `斗鱼直播间 ${roomId}`,
@@ -77,7 +77,7 @@ class StreamUrlParser {
       const roomId = roomIdMatch[1];
       // TODO: 解析虎牙直播间
       const huya = new Huya(Number(roomId), url);
-      const links = await huya.getLiveStreams();
+      const links = await huya.getLiveLinks();
       return {
         title: `虎牙直播间 ${roomId}`,
         streamUrl: url,

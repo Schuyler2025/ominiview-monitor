@@ -241,7 +241,7 @@ export class Huya extends Base {
     return;
   }
 
-  async getLiveStreams(): Promise<StreamResult> {
+  async getLiveLinks(): Promise<StreamResult> {
     const roomID = await this.getFinalRoomID();
     const stream = await this.getRoomProfile(roomID);
     return stream;

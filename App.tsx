@@ -121,13 +121,13 @@ function App() {
               }
 
               // 斗鱼格式优先级
-              if (parsedData.links?.pc && typeof parsedData.links.pc === 'string') {
-                urlCandidates.push(parsedData.links.pc);
+              if (parsedData.links?.url && typeof parsedData.links.url === 'string') {
+                urlCandidates.push(parsedData.links.url);
               }
 
-              if (parsedData.links?.mobile && typeof parsedData.links.mobile === 'string') {
-                urlCandidates.push(parsedData.links.mobile);
-              }
+              // if (parsedData.links?.mobile && typeof parsedData.links.mobile === 'string') {
+              //   urlCandidates.push(parsedData.links.mobile);
+              // }
 
               // Bilibili格式优先级
               if (parsedData.links?.flv && Array.isArray(parsedData.links.flv)) {
@@ -154,15 +154,11 @@ function App() {
                 urlCandidates.push(parsedData.links.proxy);
               }
 
-              // 原始流URL
-              if (parsedData.streamUrl && typeof parsedData.streamUrl === 'string') {
-                urlCandidates.push(parsedData.streamUrl);
-              }
-
               // 选择第一个有效的链接
               if (urlCandidates.length > 0) {
                 finalUrl = urlCandidates[0];
                 console.log(`找到 ${urlCandidates.length} 个候选链接，选择:`, finalUrl);
+                console.log('所有候选链接:', urlCandidates);
               }
 
               finalTitle = parsedData.title || finalTitle;

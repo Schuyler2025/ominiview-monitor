@@ -106,5 +106,5 @@ export const isType = <T extends object>(
   return key in obj;
 };
 
-export * from "./douyu";
+
 export * from "./huya";
