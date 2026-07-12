@@ -9,7 +9,6 @@
  * Copyright (c) 2025 by Schuyler, All Rights Reserved.
  */
 
-
 export abstract class Base {
   roomID: number;
   readonly baseURL: string = "";
@@ -42,7 +41,6 @@ export abstract class Base {
 
       return response;
     } catch (e) {
-      // return fatal("请求出错", (e as Error).message);
       return Promise.reject(e);
     }
   }
@@ -51,8 +49,6 @@ export abstract class Base {
     url: string,
     headers?: { [key: string]: string },
   ): Promise<Response> {
-    // debug("GET 正在访问的链接：", url);
-
     const options: RequestInit = {
       method: "GET",
       headers: headers || {},
@@ -71,8 +67,6 @@ export abstract class Base {
     body: string | object,
     contentType: keyof typeof Base.ContentType = "form",
   ): Promise<Response> {
-    // debug("POST 正在访问的链接：", url, "使用的参数", body);
-
     const options: RequestInit = {
       method: "POST",
       headers: {
@@ -85,26 +79,7 @@ export abstract class Base {
   }
 }
 
-interface Link {
-  link: string;
-  tooltip?: string;
-  suffix?: string;
-}
-
-export const printLink = ({ link, tooltip, suffix }: Link) => {
-  if (typeof tooltip === "string") console.log(tooltip);
-
-  // console.log(color.gray(link));
-
-  if (typeof suffix === "string") console.log(suffix);
-};
-
-export const isType = <T extends object>(
-  key: string,
-  obj: object,
-): obj is T => {
-  return key in obj;
-};
-
-
 export * from "./huya";
+export * from "./bilibili";
+export { DouyuApi } from "./douyu/douyu";
+export type { StreamUrlResult } from "./douyu/types";

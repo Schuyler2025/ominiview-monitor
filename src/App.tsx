@@ -20,8 +20,6 @@ function App() {
   const [customTitle, setCustomTitle] = useState('');
   const [currentStreamIndex, setCurrentStreamIndex] = useState(0);
 
-  let bestUrl = "";
-
   // Add a random stream from the mock list
   const addRandomStream = useCallback(() => {
     if (streams.length >= MAX_STREAMS) return;
@@ -37,40 +35,6 @@ function App() {
     setStreams(prev => [...prev, newStream]);
     setCurrentStreamIndex(prev => prev + 1);
   }, [streams, currentStreamIndex]);
-
-  const parseStreamUrl = async (url: string): Promise<{success: boolean, data?: any, error?: string}> => {
-    try {
-      const response = await fetch('http://localhost:3001/api/parse-url', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ url }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-
-      if (result.success) {
-        return {success: true, data: result.data};
-      } else {
-        return {
-          success: false,
-          error: result.error || 'Fail to parse URL',
-        }
-      }
-
-    } catch (error) {
-      console.error('Error parsing stream URL:', error);
-      return {
-        success: false,
-        error: error.message,
-      };
-    }
-  };
 
   // Add custom stream
   const handleAddCustomStream = async (e: React.FormEvent) => {
@@ -124,10 +88,6 @@ function App() {
               if (parsedData.links?.url && typeof parsedData.links.url === 'string') {
                 urlCandidates.push(parsedData.links.url);
               }
-
-              // if (parsedData.links?.mobile && typeof parsedData.links.mobile === 'string') {
-              //   urlCandidates.push(parsedData.links.mobile);
-              // }
 
               // Bilibili格式优先级
               if (parsedData.links?.flv && Array.isArray(parsedData.links.flv)) {

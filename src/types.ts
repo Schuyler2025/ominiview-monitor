@@ -6,29 +6,29 @@ export enum GridLayout {
   Sixteen = '4x4'
 }
 
-export interface LiveLinks {
-  mobile?: string;
-  pc?: string;
-  cdnLinks: {
-    flv: string[];
-    m3u8: string[];
-  };
+export interface StreamLinks {
+  flv?: Record<string, string> | string[];
+  hls?: Record<string, string> | string[];
+  url?: string;
   proxy?: string;
+  cdnLinks?: {
+    m3u8?: string[];
+    flv?: string[];
+  };
 }
 
 export interface StreamSource {
   id: string;
   title: string;
-  url: string; // 主播放 URL
-  links?: LiveLinks; // 所有可用的播放链接
+  url: string;
+  links?: StreamLinks;
   location: string;
   isMuted: boolean;
   status: 'live' | 'connecting' | 'error';
-  platform?: string; // 直播平台（如 Douyu, Huya 等）
+  platform?: string;
 }
 
 export interface IconProps {
   className?: string;
   size?: number;
-  onClick?: () => void;
 }
